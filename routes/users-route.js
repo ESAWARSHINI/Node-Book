@@ -2,12 +2,12 @@ import express from "express";
 
 const router = express.Router();
 import userObject from "../controllers/users-controller.js";
-import { auth } from "../middleware/auth.js";
+
 router
   .route("/")
-  .get(auth, userObject.getUsers)
+  .get(userObject.getUsers)
   //Post in Table
-  .post(auth, userObject.insertUsers);
+  .post(userObject.insertUsers);
 
 router.route("/login").post(userObject.checkUser);
 

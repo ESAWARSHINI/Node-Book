@@ -1,11 +1,11 @@
-import { SignUp } from "../models/users.js";
+import { Register } from "../models/users.js";
 
 async function getUserFunction() {
-  return await SignUp.findAll();
+  return await Register.findAll();
 }
 
 async function searchFunction(search) {
-  const searchResult = (await SignUp.findAll()).filter((obj) => {
+  const searchResult = (await Register.findAll()).filter((obj) => {
     var temp = obj.toJSON();
     for (let key in temp) {
       if (typeof temp[key] === "string" && temp[key].includes(search)) {
@@ -20,14 +20,14 @@ async function searchFunction(search) {
 
 async function insertUserFunction(username, password) {
   try {
-    return await SignUp.create({ username, password });
+    return await Register.create({ username, password });
   } catch (error) {
     return { msg: error.errors.map((ele) => ele.message).join() };
   }
 }
 
 async function checkUserFunction(username) {
-  const obj = await SignUp.findOne({
+  const obj = await Register.findOne({
     where: {
       username: username,
     },

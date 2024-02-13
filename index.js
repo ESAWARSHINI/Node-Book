@@ -1,6 +1,9 @@
 // const express = require("express"); // "type": "commonjs"
 import express from "express"; // "type": "module"
 import sequelize from "./config.js";
+import cors from "cors";
+import morgan from "morgan";
+
 import { Book } from "./models/books.js"; //Not used after creating routes
 import booksRouter from "./routes/books-route.js";
 import usersRouter from "./routes/users-route.js";
@@ -15,6 +18,9 @@ try {
 
 const app = express();
 app.use(express.json());
+app.use(cors());
+app.use(morgan("tiny"));
+
 const PORT = process.env.PORT;
 app.get("/", function (request, response) {
   response.send("🙋‍♂️, 🌏 🎊✨🤩");

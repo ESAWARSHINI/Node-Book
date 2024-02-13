@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config.js";
 
-const SignUp = sequelize.define(
-  "SignUp",
+const Register = sequelize.define(
+  "Register",
   {
     // Model attributes are defined here
     username: {
@@ -19,5 +19,5 @@ const SignUp = sequelize.define(
     // Other model options go here
   }
 );
-console.log(SignUp === sequelize.models.SignUp); // true
-export { SignUp };
+//console.log(SignUp === sequelize.models.SignUp); // true
+export { Register };
